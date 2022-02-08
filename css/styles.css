@@ -115,6 +115,11 @@ img {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-link:hover,
+.header-link:focus {
+  color: var(--accent-color);
 }
 
 .header-tel {
@@ -213,7 +218,7 @@ img {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-
+  border: none;
   min-width: 200px;
   min-height: 50px;
   margin-top: 30px;
@@ -298,7 +303,7 @@ img {
   text-transform: uppercase;
   display: flex;
   color: var(--one-title-color);
-  width: 370px;
+  width: 100%;
   height: 70px;
   position: absolute;
   bottom: 0;
@@ -422,11 +427,11 @@ img {
   align-items: center;
   border-radius: 4px;
   border: 1px solid var(--icon-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-social-icon {
   fill: var(--icon-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-social-item:not(:last-child) {
@@ -462,7 +467,7 @@ img {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: #ffffff;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 .footer-link {
@@ -473,7 +478,7 @@ img {
 
   text-decoration: none;
   display: block;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list li:not(:last-child) {
@@ -528,12 +533,12 @@ address {
 .footer-social-link {
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item:not(:last-child) {
@@ -569,7 +574,7 @@ address {
   background-color: var(--accent-color);
   border-radius: 2px;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 }
 /*--------------------------ART----------------------*/
 .art {
@@ -603,7 +608,9 @@ address {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .art-btn:hover,
 .art-btn:focus {
@@ -654,9 +661,7 @@ address {
   margin-left: 30px;
   margin-top: 30px;
 }
-.carte-item :hover .art-text-to {
-  transform: translateY(0%);
-}
+
 .carte-info {
   border: 1px solid #eeeeee;
   border-top: none;
@@ -687,8 +692,20 @@ address {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   transform: translateY(100%);
-  transition: transform 250ms linear;
+  transition: transform 250ms linear,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.carte-item :hover .art-text-to {
+  transform: translateY(0%);
+}
+
+.carte-item :focus .art-text-to {
+  transform: translateY(0%);
+}
+
+/* -----------backdrop-------------------------------------------------------------------- */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -721,6 +738,7 @@ address {
   position: absolute;
   top: 8px;
   right: 8px;
+  cursor: pointer;
 }
 .is-hidden {
   opacity: 0;
